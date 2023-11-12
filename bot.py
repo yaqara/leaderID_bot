@@ -6,7 +6,7 @@ from keyboard import authKeyboard, webKeyboard
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import sqlite3
+
 from security import TOKEN
 
 
