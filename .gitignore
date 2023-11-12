@@ -1,2 +1,4 @@
 venv/
 security.py
+__pychache__/
+.vscode/
