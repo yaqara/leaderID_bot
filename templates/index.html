@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image and Text Block</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+<div id = header>
+    <img src="{{ url_for('static', path='imgs/search.png') }}"  id = "search_fon" alt="">
+    <img src="{{ url_for('static', path='imgs/search.png') }}" id = "search_znak" alt="">
+    <img src="{{ url_for('static', path='imgs/filtr.png') }}" id = "filtr" alt="">
+    <img src="{{ url_for('static', path='imgs/geo.png') }}" id = "geo"alt="">
+    <img src="{{ url_for('static', path='imgs/line.png') }}" id = "line" alt="">
+
+</div>
+
+    
+    <div class="container">
+        {% for el in data %}
+            <div class="button">
+                <img class="event_image" src="{{el[2]}}" alt="Image">
+                <p class="event_description">
+                    {{el[0]}}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

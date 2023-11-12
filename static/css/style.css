@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+  }
+  .container {
+    height: 250vh;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .block {
+    height: 50vh; /* изменено с 100vh на 50vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+  }
+ @media (max-width: 400px) {
+      div {
+        flex-direction: column;
+      }
+      img {
+        margin-bottom: 20px;
+        height: 50%;
+        width: 50%;
+      }
+    }
+  .button{
+    background-color: rgb(30, 30, 30);
+    display: flex; align-items: center;
+    margin-bottom:1%;
+    height:auto;
+
+  }
+  .event_image{
+    width: 35%; 
+    margin: 2% 0 2% 5%;
+    float: right;
+    border-radius: 5%;
+  }
+  .event_description{
+    width: 50%;
+    margin-left: 3%;
+    font-size: 70%;
+    border-radius: 5%;
+    
+    
+     
+
+    border-width: 2% 2% 2% 2%;
+    border-style: none none solid solid;
+    border-color: #9c27b0 #f3e5f5 #9c27b0 #9c27b0;
+    padding: 2% 2% 2% 2%;
+    
+  }
+
+  
+#search_fon{
+  width: 78%;
+  margin: 2% 2% 2% 2%;
+  margin-left: 3%;
+  float: left;
+margin-top: 4%;
+}
+#search_znak{
+  width: 12%;
+   
+  margin-left: 1%;
+  margin-top: 3%;
+}
+#filtr{
+  margin: 2% 2% 2% 2%;
+  margin-left: 3%;
+  width: 30%;
+  
+}
+#geo{
+  
+  margin: 2% 2% 2% 2%;
+  margin-left: 28%;
+  width: 33%;
+
+}
+#line{
+  width: 92%;
+  margin-left: 4%;
+  margin-bottom: 4%;
+}
+.h2{
+  width: 100%;
+  font-size: 130%;
+  margin-left: 10%;
+  margin-top: -25%;
+  
+}
+.text{
+  float: right;
+  
+}
+
+.boarder{
+  position: absolute;
+  
+  width: 40%;
+  margin-left: -49%;
+  margin-top: 5%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
