@@ -1,15 +1,11 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.types.web_app_info import WebAppInfo
-from aiogram.dispatcher import FSMContext
-from aiogram.dispatcher.filters.state import State, StatesGroup
 import logging, asyncio
 
 from keyboard import authKeyboard, webKeyboard
 
 from selenium import webdriver
-from selenium.common.exceptions import JavascriptException
 from selenium.webdriver.common.by import By
-from time import sleep
 import sqlite3
 from security import TOKEN
 
@@ -41,14 +37,14 @@ async def regAlg(callback_query: types.CallbackQuery):
         )
 
 @dp.message_handler(content_types=types.ContentType.CONTACT)
-async def auth(msg: types.Message, state: FSMContext):
+async def auth(msg: types.Message):
     async def authUser():
         async def checkAuth():
-            try: 
-                driver.execute_script("return confirmRequest()")
-                await msg.answer("Вы успешно зарегистрированы", reply_markup=webKeyboard())
-            except Exception as e:
-                await asyncio.sleep(1)
+            driver.switch_to.window(driver.window_handles[0])
+            if driver.current_url == "https://leader-id.ru/profile":
+                await msg.reply("Вы успешно зарегистрированы", reply_markup=webKeyboard())
+            else:
+                await asyncio.sleep(2)
                 await checkAuth()
         driver.get("https://leader-id.ru/")
         driver.find_element(By.CSS_SELECTOR, "._20JsdZWnuYjL > svg:nth-child(1)").click()
@@ -61,7 +57,7 @@ async def auth(msg: types.Message, state: FSMContext):
         await asyncio.sleep(5)
         driver.find_element(By.CSS_SELECTOR, "#login-phone").send_keys(msg.contact.phone_number[2:])
         driver.find_element(By.CSS_SELECTOR, "button.button-item:nth-child(2)").click()
-        await msg.answer("Просмотрите сообщения от Telegram и продтвердите вход")
+        # await msg.answer("Просмотрите сообщения от Telegram и продтвердите вход")
         await checkAuth()
     driver = webdriver.Firefox()
     await authUser()
